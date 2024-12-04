@@ -1,0 +1,26 @@
+name: MDC Github Actions Demo
+on:
+ push:
+   branches:
+     - main  # Replace with your default branch
+ pull_request:
+   branches:
+     - main  # Replace with your default branch
+jobs:
+ build-and-test:
+   runs-on: ubuntu-latest
+   steps:
+     # Step 1: Check out the repository
+     - name: Check out code
+       uses: actions/checkout@v3
+     # Step 2: Set up a specific version of Node.js (example, replace as needed)
+     - name: Set up Node.js
+       uses: actions/setup-node@v3
+       with:
+         node-version: 16
+     # Step 3: Install dependencies
+     - name: Install dependencies
+       run: npm install
+     # Step 4: Run tests
+     - name: Run tests
+       run: npm test
